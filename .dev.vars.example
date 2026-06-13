@@ -1,0 +1,4 @@
+WEBDAV_URL=https://example.com/dav
+WEBDAV_USERNAME=your-username
+WEBDAV_PASSWORD=your-password
+WEBDAV_ROOT_PATH=/images
