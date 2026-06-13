@@ -1,18 +1,19 @@
 {
   "name": "webdav-proxy",
   "version": "1.0.0",
-  "description": "Cloudflare Worker proxy for WebDAV images",
+  "description": "Vercel proxy for WebDAV images",
   "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler deploy",
+    "start": "vercel dev",
+    "deploy": "vercel deploy",
     "typecheck": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20260613.1",
+    "@types/node": "^24.0.0",
+    "@vercel/node": "^5.3.24",
     "typescript": "^6.0.3",
-    "wrangler": "^4.100.0"
+    "vercel": "^48.4.1"
   }
 }

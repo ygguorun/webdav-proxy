@@ -1,10 +1,10 @@
 # webdav-proxy
 
-Cloudflare Workers project that proxies image requests to a WebDAV server.
+Vercel project that proxies image requests to a WebDAV server.
 
 ## Environment variables
 
-Copy `.dev.vars.example` to `.dev.vars` and fill in:
+Create `.env.local` and fill in:
 
 - `WEBDAV_URL`: WebDAV base URL, for example `https://example.com/dav`
 - `WEBDAV_USERNAME`: WebDAV username
@@ -19,12 +19,30 @@ Request path `/foo/bar.jpg` maps to:
 
 ## Commands
 
-- `npm run dev`
+- `npm run start`
 - `npm run typecheck`
 - `npm run deploy`
+
+## Local development
+
+- `npm install`
+- Create `.env.local`
+- Run `npm run start`
+- Visit `http://localhost:3000/<image-path>`
 
 ## Behavior
 
 - Only `GET` and `HEAD` are allowed.
 - Only successful upstream image responses are returned.
 - Upstream non-2xx responses are passed through with their original status.
+
+## Deployment
+
+- Add the four `WEBDAV_*` variables in the Vercel project settings.
+- Deploy with `npm run deploy`.
+- Requests to `/{path}` are internally rewritten to `api/proxy.ts` via `vercel.json`.
+
+## Notes
+
+- `.env.local` is for local development only.
+- Production uses Vercel project environment variables.
